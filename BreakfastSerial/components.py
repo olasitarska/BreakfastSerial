@@ -75,6 +75,7 @@ class Led(Component):
         super(Led, self).__init__(board, pin)
         self._isOn = False
         self._interval = None
+        self._pin.mode = pyfirmata.OUTPUT
 
     def on(self):
         self._pin.write(1)
