@@ -35,6 +35,10 @@ class Arduino(pyfirmata.Arduino):
             newargs = (find_arduino(),)
             super(Arduino, self).__init__(*newargs)
 
+        # Get protocol version
+        self.sp.write(chr(0xF9))        
+        self.iterate()              
+
         if not self.get_firmata_version():
             raise FirmataNotOnBoardException
 
