@@ -194,6 +194,7 @@ class Button(Sensor):
         super(Button, self).__init__(board, pin)
         self._old_value = False
         self._timeout = None
+        self._pin.write(1)
 
         self.change(self._emit_button_events)
 
